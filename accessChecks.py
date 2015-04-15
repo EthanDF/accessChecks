@@ -38,6 +38,7 @@ def writeResultLog(sysID,url,urlResult):
 def degruyterCheckSite(url):
     """check's degruyters site based on URL provided for "Licensed Access"""
     dgtestPhrase = 'Licensed Access'
+    dgtestPhrase2 = 'viewbooktoc'
 
     # urltoCheck = input("\n what is the URL? \n")
 
@@ -47,7 +48,7 @@ def degruyterCheckSite(url):
     rResult = r.text
 
     dgoutcome = 0
-    if dgtestPhrase in rResult:
+    if (dgtestPhrase in rResult) and (dgtestPhrase2 in rResult):
         dgoutcome = 1
 
     return dgoutcome
