@@ -9,6 +9,8 @@ import tkinter
 root = tkinter.Tk()
 root.withdraw()
 
+resultsFile = 'c:\\users\\fenichele\\desktop\\resultsFile.csv'
+
 def readTestList():
     """Read in list of SYS#s and URLs to Test"""
 
@@ -27,9 +29,11 @@ def readTestList():
     return accessCheckList
 
 def writeResultLog(sysID,url,urlResult):
-    data = [[str(sysID),str(url),str(urlResult)]]
+    import time
+    now = time.strftime('%Y-%m-%d %H:%M:%S')
+    data = [[now,str(sysID),str(url),str(urlResult)]]
     print (data)
-    resultsFile = 'c:\\users\\fenichele\\desktop\\resultsFile.csv'
+    # resultsFile = 'c:\\users\\fenichele\\desktop\\resultsFile.csv'
     with open(resultsFile, 'a', newline='') as out:
         a = csv.writer(out, delimiter=',', quoting=csv.QUOTE_ALL)
         a.writerows(data)
